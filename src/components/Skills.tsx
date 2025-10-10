@@ -49,7 +49,7 @@ const skillCategories = [
       "OOP",
       "Automation",
     ],
-    color: "text-accent",
+    color: "text-primary",
   },
   {
     title: "Databases",
@@ -63,7 +63,7 @@ const skillCategories = [
       "Memgraph",
       "LanceDB",
     ],
-    color: "text-primary",
+    color: "text-secondary",
   },
   {
     title: "Cloud & DevOps",
@@ -76,7 +76,7 @@ const skillCategories = [
       "Git",
       "Docker",
     ],
-    color: "text-secondary",
+    color: "text-primary",
   },
   {
     title: "Soft Skills",
@@ -88,7 +88,7 @@ const skillCategories = [
       "Strategic Thinking",
       "Communication",
     ],
-    color: "text-accent",
+    color: "text-secondary",
   },
 ];
 
@@ -100,15 +100,17 @@ const Skills = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = itemRefs.current.indexOf(entry.target as HTMLDivElement);
-            if (index !== -1 && !visibleItems.includes(index)) {
-              setVisibleItems((prev) => [...prev, index]);
+          const index = itemRefs.current.indexOf(entry.target as HTMLDivElement);
+          if (index !== -1) {
+            if (entry.isIntersecting) {
+              setVisibleItems((prev) => [...new Set([...prev, index])]);
+            } else {
+              setVisibleItems((prev) => prev.filter(i => i !== index));
             }
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15, rootMargin: "-50px" }
     );
 
     itemRefs.current.forEach((ref) => {
@@ -119,9 +121,9 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+    <section id="skills" className="py-24 px-4 relative overflow-hidden">
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
             Technical Arsenal
           </h2>
@@ -133,19 +135,21 @@ const Skills = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
+            const isVisible = visibleItems.includes(index);
             return (
               <div
                 key={index}
                 ref={(el) => (itemRefs.current[index] = el)}
-                className={`transition-all duration-700 delay-${index * 100} ${
-                  visibleItems.includes(index)
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-95"
+                className={`transition-all duration-700 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0 scale-100"
+                    : "opacity-0 translate-y-10 scale-95"
                 }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Card className="h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] group">
+                <Card className="h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] group">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10' : 'bg-secondary/10'} rounded-lg group-hover:bg-primary/20 transition-colors`}>
                       <Icon className={`w-6 h-6 ${category.color}`} />
                     </div>
                     <h3 className="text-xl font-bold text-foreground">
@@ -158,7 +162,7 @@ const Skills = () => {
                       <Badge
                         key={i}
                         variant="secondary"
-                        className="bg-muted/50 hover:bg-primary/20 hover:text-primary transition-all duration-200 hover:scale-110 cursor-default"
+                        className={`${index % 2 === 0 ? 'bg-primary/10 border-primary/20 text-primary' : 'bg-secondary/10 border-secondary/20 text-secondary'} hover:scale-110 transition-all duration-200 cursor-default`}
                       >
                         {skill}
                       </Badge>
