@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import SectionHeader from "@/components/SectionHeader";
 import {
   Brain,
   Code2,
@@ -19,10 +20,15 @@ const skillCategories = [
       "Claude",
       "Gemini 2.5",
       "Llama",
+      "Mistral",
+      "Nvidia",
       "Multi-Agent Systems",
       "RAG",
+      "Generative AI",
       "Prompt Engineering",
       "NLP",
+      "Deep Learning",
+      "Machine Learning",
     ],
     color: "text-primary",
   },
@@ -36,6 +42,13 @@ const skillCategories = [
       "PyTorch",
       "Hugging Face",
       "Scikit-Learn",
+      "NumPy",
+      "Pandas",
+      "Matplotlib",
+      "OpenCV",
+      "spaCy",
+      "TTS",
+      "STT",
     ],
     color: "text-secondary",
   },
@@ -46,7 +59,11 @@ const skillCategories = [
       "Python",
       "FastAPI",
       "RESTful APIs",
+      "LLM Integration",
       "OOP",
+      "Rule Engine Design",
+      "Chatbots",
+      "Testing & Debugging",
       "Automation",
     ],
     color: "text-primary",
@@ -69,12 +86,15 @@ const skillCategories = [
     title: "Cloud & DevOps",
     icon: Cloud,
     skills: [
-      "AWS Lambda",
-      "AWS EC2",
+      "AWS",
       "Azure",
       "CI/CD",
       "Git",
       "Docker",
+      "Postman",
+      "Monitoring",
+      "Tableau",
+      "Streamlit",
     ],
     color: "text-primary",
   },
@@ -123,14 +143,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 px-4 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
-            Technical Arsenal
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Expertise across the AI & ML technology stack
-          </p>
-        </div>
+        <SectionHeader title="Technical Arsenal" subtitle="Expertise across the AI & ML technology stack" />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => {
@@ -147,9 +160,9 @@ const Skills = () => {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Card className="h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] group">
+                <Card className="h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 hover:scale-[1.03] group">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10' : 'bg-secondary/10'} rounded-lg group-hover:bg-primary/20 transition-colors`}>
+                    <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
                       <Icon className={`w-6 h-6 ${category.color}`} />
                     </div>
                     <h3 className="text-xl font-bold text-foreground">
@@ -162,7 +175,11 @@ const Skills = () => {
                       <Badge
                         key={i}
                         variant="secondary"
-                        className={`${index % 2 === 0 ? 'bg-primary/10 border-primary/20 text-primary' : 'bg-secondary/10 border-secondary/20 text-secondary'} hover:scale-110 transition-all duration-200 cursor-default`}
+                        className={`${
+                          index % 2 === 0
+                            ? 'bg-primary/10 border-primary/20 text-primary hover:bg-primary/20'
+                            : 'bg-secondary/10 border-secondary/20 text-secondary hover:bg-secondary/20'
+                        } hover:scale-110 transition-all duration-200 cursor-default`}
                       >
                         {skill}
                       </Badge>

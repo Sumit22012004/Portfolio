@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import SectionHeader from "@/components/SectionHeader";
 import { Mail, Linkedin, Github, MapPin, Phone } from "lucide-react";
 
 const Contact = () => {
@@ -29,14 +30,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto max-w-4xl relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Open to exciting AI opportunities and collaborations
-          </p>
-        </div>
+        <SectionHeader title="Let's Connect" subtitle="Open to exciting AI opportunities and collaborations" />
 
         <div 
           ref={sectionRef}

@@ -1,33 +1,36 @@
 import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
+import SectionHeader from "@/components/SectionHeader";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    role: "RAG/Multi-Agent AI Engineer",
+    role: "RAG/ Multi-Agent AI Engineer",
     company: "VRVV Ventures",
     location: "Bangalore, Karnataka",
-    period: "May 2025 - Present",
+    period: "May 2025 – Present",
     highlights: [
-      "Built conversational AI with persistent memory achieving 95.2% accuracy (vs 86% benchmark)",
-      "Engineered multi-agent system with Gemini 2.5, GPT-5, and offline LLMs for maximum privacy",
-      "Designed AI personality modules with Zero-shot, Few-shot, CoT, and Prompt Chaining",
+      "Developed an advanced conversational AI system with persistent memory, enabling storage, retrieval, and contextualization of user interactions.",
+      "Designed a memory architecture using Qdrant, MongoDB, and Memgraph for encrypted user data and lifelong memory visualization, achieving 95.2% accuracy in LongMemEval, surpassing Mistral’s 86% benchmark.",
+      "Engineered a multi-agent system and secure, scalable backend integrating modern LLMs (including local deployments) with robust encryption and orchestration.",
+      "Designed and managed AI personality modules leveraging zero-shot, few-shot, role prompting, chain-of-thought (CoT), and prompt chaining techniques.",
+      "Automated memory updates, data cleanup, and system health monitoring through optimized cron jobs at multiple intervals.",
     ],
-    tech: ["RAG", "Multi-Agent", "Qdrant", "MongoDB", "Memgraph", "Gemini 2.5", "GPT-5"],
+    tech: ["RAG", "Multi-Agent", "Qdrant", "MongoDB", "Memgraph", "LLMs", "Security"],
     icon: Briefcase,
   },
   {
     role: "Software Development Trainee",
     company: "Udyat Technologies",
     location: "Mohali, Punjab",
-    period: "Sep 2024 - Mar 2025",
+    period: "September 2024 – March 2025",
     highlights: [
-      "Optimized backend APIs with FastAPI, LangChain, boosting efficiency by 30%",
-      "Deployed multi-agent workflows for AI automation and scalable chatbot applications",
-      "Leveraged AWS Lambda, EC2 with CI/CD for seamless deployment and scaling",
+      "Developed and optimized backend APIs using Python, FastAPI, and LangChain, integrating advanced LLMs with Retrieval-Augmented Generation (RAG) and prompt engineering for accuracy and efficiency improvements.",
+      "Designed and deployed multi-agent workflows for AI-driven automation, enabling session management, fine‑tuned conversational responses, and scalable chatbot applications.",
+      "Leveraged AWS (Lambda, EC2) and CI/CD pipelines to ensure seamless deployment and performance optimization while integrating OCR, custom NLP models, and vectorized insights generation.",
     ],
-    tech: ["FastAPI", "LangChain", "GPT-5", "Claude", "AWS", "MySQL", "MongoDB"],
+    tech: ["Python", "FastAPI", "LangChain", "AWS", "MySQL", "MongoDB", "NLP"],
     icon: Calendar,
   },
 ];
@@ -65,14 +68,7 @@ const Experience = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
-            Professional Journey
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Transforming ideas into intelligent solutions
-          </p>
-        </div>
+        <SectionHeader title="Professional Journey" subtitle="Transforming ideas into intelligent solutions" />
 
         <div className="relative">
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary"></div>
@@ -94,8 +90,10 @@ const Experience = () => {
                   }`}
                 >
                   <Card
-                    className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] group ${
-                      isLeft ? "md:mr-[52%]" : "md:ml-[52%]"
+                    className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 group ${
+                      isLeft
+                        ? "hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] md:mr-[52%]"
+                        : "hover:border-secondary/50 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.2)] md:ml-[52%]"
                     }`}
                   >
                     <div 
@@ -107,11 +105,11 @@ const Experience = () => {
                     ></div>
 
                     <div className="flex items-start gap-4 mb-4">
-                      <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10' : 'bg-secondary/10'} rounded-lg group-hover:bg-primary/20 transition-colors`}>
+                      <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
                         <Icon className={`w-6 h-6 ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                        <h3 className={`text-2xl font-bold text-foreground mb-1 transition-colors ${index % 2 === 0 ? 'group-hover:text-primary' : 'group-hover:text-secondary'}`}>
                           {exp.role}
                         </h3>
                         <p className={`text-lg font-semibold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
@@ -141,7 +139,11 @@ const Experience = () => {
                         <Badge
                           key={i}
                           variant="secondary"
-                          className={`${index % 2 === 0 ? 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/20' : 'bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20'} transition-colors`}
+                          className={`${
+                            index % 2 === 0
+                              ? 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:scale-110'
+                              : 'bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20 hover:scale-110'
+                          } transition-all duration-200 cursor-default`}
                         >
                           {tech}
                         </Badge>
