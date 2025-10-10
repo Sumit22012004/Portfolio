@@ -90,12 +90,13 @@ const Experience = () => {
                   }`}
                 >
                   <Card
-                    className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 group ${
+                    className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-500 group relative overflow-hidden hover:scale-[1.02] ${
                       isLeft
                         ? "hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] md:mr-[52%]"
                         : "hover:border-secondary/50 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.2)] md:ml-[52%]"
                     }`}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div 
                       className={`hidden md:block absolute top-10 w-4 h-4 rounded-full ring-4 ring-background ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'} shadow-[0_0_20px_hsl(var(--${index % 2 === 0 ? 'primary' : 'secondary'})/0.5)]`}
                       style={{ 
@@ -104,7 +105,7 @@ const Experience = () => {
                       }}
                     ></div>
 
-                    <div className="flex items-start gap-4 mb-4">
+                    <div className="relative z-10 flex items-start gap-4 mb-4">
                       <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
                         <Icon className={`w-6 h-6 ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
                       </div>
