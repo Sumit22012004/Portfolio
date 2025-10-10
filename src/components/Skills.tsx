@@ -160,7 +160,8 @@ const Skills = () => {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Card className="h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 hover:scale-[1.03] group hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)]">
+                <Card className="relative overflow-hidden h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 hover:scale-[1.03] group hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="flex items-center gap-3 mb-6">
                     <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
                       <Icon className={`w-6 h-6 ${category.color}`} />
