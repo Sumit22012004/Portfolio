@@ -21,13 +21,16 @@ const Navbar = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          const mostVisible = visible.reduce((prev, curr) =>
+            curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+          );
+          const id = (mostVisible.target as HTMLElement).id;
+          setActive(id);
+        }
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-35% 0px -60% 0px", threshold: 0 }
     );
 
     sections.forEach((s) => {

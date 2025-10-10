@@ -123,33 +123,15 @@ const Experience = () => {
                       </div>
                     </div>
 
-                    <ul className="space-y-3 mb-6">
+                    <ul className="mb-6 pl-6 list-disc marker:text-primary space-y-3">
                       {exp.highlights.map((highlight, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-foreground/80"
-                        >
-                          <span className={`${index % 2 === 0 ? 'text-primary' : 'text-secondary'} mt-1.5`}>▹</span>
-                          <span>{highlight}</span>
+                        <li key={i} className="text-foreground/80">
+                          {highlight}
                         </li>
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((tech, i) => (
-                        <Badge
-                          key={i}
-                          variant="secondary"
-                          className={`${
-                            index % 2 === 0
-                              ? 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:scale-110'
-                              : 'bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20 hover:scale-110'
-                          } transition-all duration-200 cursor-default`}
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+                    {/* Tech badges removed per request */}
                   </Card>
                 </div>
               );

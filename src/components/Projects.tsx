@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 import SectionHeader from "@/components/SectionHeader";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Sparkles } from "lucide-react";
 
@@ -73,30 +72,15 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              <div className="space-y-3 mb-8">
+              <ul className="mb-8 space-y-3 pl-6 list-disc marker:text-primary">
                 {project.achievements.map((achievement, i) => (
-                  <div key={i} className="flex items-start gap-3 group/item">
-                    <span className="mt-2 text-lg text-primary">•</span>
-                    <span className="text-foreground/80 group-hover/item:text-foreground transition-colors">{achievement}</span>
-                  </div>
+                  <li key={i} className="text-foreground/80">
+                    {achievement}
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <div className="flex flex-wrap gap-3">
-                {project.tech.map((tech, i) => (
-                  <Badge
-                    key={i}
-                    variant="secondary"
-                    className={`${
-                      i % 2 === 0
-                        ? 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:scale-110'
-                        : 'bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20 hover:scale-110'
-                    } transition-all duration-200 cursor-default`}
-                  >
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
+              {/* Tech badges removed per request */}
 
               <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-center justify-between gap-3">
                 <a

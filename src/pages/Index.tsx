@@ -10,7 +10,7 @@ import AuroraBackground from "@/components/AuroraBackground";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <AuroraBackground />
+      {/* Keep animated background only inside Navbar; remove global background */}
       <Navbar />
       <Hero />
       <Experience />

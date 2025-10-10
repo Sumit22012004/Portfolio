@@ -79,12 +79,13 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+              <div className="group relative overflow-hidden flex items-center justify-center gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_hsl(var(--secondary)/0.2)]">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <a
                   href="https://linkedin.com/in/sumitkumar22"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary/10 rounded-lg hover:bg-secondary/20 transition-all duration-300 hover:scale-110"
+                  className="relative z-10 p-3 bg-secondary/10 rounded-lg hover:bg-secondary/15 group-hover:bg-secondary/12 transition-all duration-300 hover:scale-110"
                 >
                   <Linkedin className="w-6 h-6 text-secondary" />
                 </a>
@@ -92,7 +93,7 @@ const Contact = () => {
                   href="https://github.com/Sumit22012004"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary/10 rounded-lg hover:bg-secondary/20 transition-all duration-300 hover:scale-110"
+                  className="relative z-10 p-3 bg-secondary/10 rounded-lg hover:bg-secondary/15 group-hover:bg-secondary/12 transition-all duration-300 hover:scale-110"
                 >
                   <Github className="w-6 h-6 text-secondary" />
                 </a>
