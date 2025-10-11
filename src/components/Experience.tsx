@@ -123,7 +123,7 @@ const Experience = () => {
                       </div>
                     </div>
 
-                    <ul className="mb-6 pl-6 list-disc marker:text-primary space-y-3">
+                    <ul className={`mb-6 pl-6 list-disc space-y-3 ${index % 2 === 0 ? 'marker:text-primary' : 'marker:text-secondary'}`}>
                       {exp.highlights.map((highlight, i) => (
                         <li key={i} className="text-foreground/80">
                           {highlight}

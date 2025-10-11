@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Sparkles } from "lucide-react";
+import { ExternalLink, Github, Brain } from "lucide-react";
 
 const project = {
   title: "Intelligent Multi-Agent Research Assistant",
@@ -43,7 +43,7 @@ const Projects = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto max-w-5xl relative z-10">
-        <SectionHeader title="Project" subtitle="Intelligent Multi-Agent Research Assistant" />
+        <SectionHeader title="Projects" subtitle="Personal AI innovations I've crafted to solve real-world challenges" />
 
         <div 
           ref={projectRef}
@@ -59,7 +59,7 @@ const Projects = () => {
             <div className="relative z-10">
               <div className="flex items-start justify-between mb-6">
                 <div className="p-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="w-8 h-8 text-primary" />
+                  <Brain className="w-8 h-8 text-primary" />
                 </div>
                 <span className="text-sm text-muted-foreground bg-muted/50 px-4 py-2 rounded-full">{project.period}</span>
               </div>
@@ -93,11 +93,13 @@ const Projects = () => {
                   <Github className="h-4 w-4 text-primary" />
                   <span>View more projects on GitHub</span>
                 </a>
-                <Button asChild size="sm" className="bg-primary/90 hover:bg-primary">
+                <div className="flex gap-2">
+                  <Button asChild size="sm" className="bg-primary/90 hover:bg-primary">
                   <a href="https://github.com/Sumit22012004" target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> Open GitHub
                   </a>
-                </Button>
+                  </Button>
+                </div>
               </div>
             </div>
           </Card>

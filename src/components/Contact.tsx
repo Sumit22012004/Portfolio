@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import SectionHeader from "@/components/SectionHeader";
-import { Mail, Linkedin, Github, MapPin, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Phone, FileDown } from "lucide-react";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,6 +96,15 @@ const Contact = () => {
                   className="relative z-10 p-3 bg-secondary/10 rounded-lg hover:bg-secondary/15 group-hover:bg-secondary/12 transition-all duration-300 hover:scale-110"
                 >
                   <Github className="w-6 h-6 text-secondary" />
+                </a>
+                <a
+                  href="/Sumit%20Kumar.pdf"
+                  download
+                  aria-label="Download My Resume"
+                  title="Download My Resume"
+                  className="relative z-10 p-3 bg-secondary/10 rounded-lg hover:bg-secondary/15 group-hover:bg-secondary/12 transition-all duration-300 hover:scale-110"
+                >
+                  <FileDown className="w-6 h-6 text-secondary" />
                 </a>
               </div>
             </div>

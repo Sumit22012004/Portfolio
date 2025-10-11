@@ -67,8 +67,8 @@ const Navbar = () => {
                   ? "text-foreground/80 hover:text-primary hover:bg-primary/10"
                   : "text-foreground/80 hover:text-secondary hover:bg-secondary/10";
                 const activeCls = isLeft
-                  ? "text-primary bg-primary/15"
-                  : "text-secondary bg-secondary/15";
+                  ? "text-primary bg-primary/5 border border-primary/30 hover:bg-primary/10"
+                  : "text-secondary bg-secondary/5 border border-secondary/30 hover:bg-secondary/10";
                 return (
                   <Button
                     key={s.id}

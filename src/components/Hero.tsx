@@ -55,7 +55,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 justify-center items-center pt-8 animate-slide-up">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)]"
+              className="bg-primary/10 border-2 border-primary/50 hover:bg-primary/20 hover:border-primary text-primary px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => scrollToSection("experience")}
             >
               View My Work
@@ -63,43 +63,16 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-primary/50 hover:bg-primary/10 hover:border-primary text-foreground px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+              className="bg-secondary/10 border-2 border-secondary/50 hover:bg-secondary/20 hover:border-secondary text-secondary hover:text-secondary px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => scrollToSection("contact")}
             >
               Get In Touch
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="flex gap-6 justify-center pt-8 animate-fade-in">
-            <a
-              href="https://github.com/Sumit22012004"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125 hover:-translate-y-1"
-            >
-              <Github className="w-7 h-7" />
-            </a>
-            <a
-              href="https://linkedin.com/in/sumitkumar22"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125 hover:-translate-y-1"
-            >
-              <Linkedin className="w-7 h-7" />
-            </a>
-            <a
-              href="mailto:sklegacy789@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125 hover:-translate-y-1"
-            >
-              <Mail className="w-7 h-7" />
-            </a>
-          </div>
+          {/* Social links removed per request */}
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <ArrowDown className="w-6 h-6 text-primary" />
-          </div>
+          {/* Scroll indicator removed per request */}
         </div>
       </div>
     </section>
