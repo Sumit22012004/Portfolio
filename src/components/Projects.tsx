@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Brain } from "lucide-react";
+import Tilt from "@/components/Tilt";
 
 const project = {
   title: "Intelligent Multi-Agent Research Assistant",
@@ -39,7 +40,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-24 px-4 bg-muted/20 relative overflow-hidden">
+    <section id="projects" className="py-24 px-4 bg-muted/20 relative overflow-hidden perspective-1200">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto max-w-5xl relative z-10">
@@ -47,13 +48,20 @@ const Projects = () => {
 
         <div 
           ref={projectRef}
-          className={`transition-all duration-1000 ${
+          className={`transition-3d-smooth ${
             isVisible
-              ? "opacity-100 translate-y-0 scale-100"
-              : "opacity-0 translate-y-20 scale-95"
+              ? "opacity-100"
+              : "opacity-0"
           }`}
+          style={{
+            transform: isVisible 
+              ? "perspective(1000px) translateY(0) translateZ(0) scale(1)" 
+              : "perspective(1000px) translateY(50px) translateZ(-100px) scale(0.9)",
+            transitionDuration: "1s"
+          }}
         >
-          <Card className="p-8 md:p-12 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_hsl(var(--primary)/0.3),0_0_90px_hsl(var(--secondary)/0.2)] group relative overflow-hidden">
+          <Tilt maxTiltDeg={3}>
+            <Card className="p-8 md:p-12 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-3d-smooth hover:shadow-[0_0_70px_hsl(var(--primary)/0.35),0_0_120px_hsl(var(--secondary)/0.25),0_30px_80px_-20px_rgba(0,0,0,0.4)] group relative overflow-hidden" style={{ transform: "translateZ(0)" }}>
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             <div className="relative z-10">
@@ -103,6 +111,7 @@ const Projects = () => {
               </div>
             </div>
           </Card>
+          </Tilt>
         </div>
       </div>
     </section>

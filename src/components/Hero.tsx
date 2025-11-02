@@ -15,16 +15,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background/95 to-muted/20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background/95 to-muted/20 perspective-1200">
       {/* Animated background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-20"></div>
       
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
+      {/* Floating orbs with 3D effect */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float3d"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float3d" style={{ animationDelay: "2s" }}></div>
 
-      <div className="container relative z-10 px-4 mx-auto max-w-6xl">
-        <div className={`text-center space-y-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+      <div className="container relative z-10 px-4 mx-auto max-w-6xl preserve-3d">
+        <div className={`text-center space-y-8 transition-3d ${isVisible ? "opacity-100" : "opacity-0"}`} style={{ transform: isVisible ? "perspective(1000px) translateZ(0)" : "perspective(1000px) translateZ(-100px) rotateX(10deg)" }}>
           {/* Greeting with fade-in */}
           <div className="animate-fade-in-left">
             <p className="text-primary text-lg md:text-xl font-medium tracking-wide">
@@ -33,7 +33,7 @@ const Hero = () => {
           </div>
 
           {/* Name with shimmer effect */}
-          <h1 className="animate-scale-in">
+          <h1 className="animate-scale-in preserve-3d" style={{ transform: "perspective(1000px) translateZ(20px)" }}>
             <span className="text-5xl md:text-7xl lg:text-8xl font-bold text-gradient glow-text">
               Sumit Kumar
             </span>
@@ -52,10 +52,10 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 justify-center items-center pt-8 animate-slide-up">
+          <div className="flex flex-wrap gap-4 justify-center items-center pt-8 animate-slide-up perspective-1000">
             <Button
               size="lg"
-              className="bg-primary/10 border-2 border-primary/50 hover:bg-primary/20 hover:border-primary text-primary px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+              className="bg-primary/10 border-2 border-primary/50 hover:bg-primary/20 hover:border-primary text-primary px-8 py-6 text-lg font-semibold rounded-xl transition-3d hover-3d-lift"
               onClick={() => scrollToSection("experience")}
             >
               View My Work
@@ -63,7 +63,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="bg-secondary/10 border-2 border-secondary/50 hover:bg-secondary/20 hover:border-secondary text-secondary hover:text-secondary px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+              className="bg-secondary/10 border-2 border-secondary/50 hover:bg-secondary/20 hover:border-secondary text-secondary hover:text-secondary px-8 py-6 text-lg font-semibold rounded-xl transition-3d hover-3d-lift"
               onClick={() => scrollToSection("contact")}
             >
               Get In Touch

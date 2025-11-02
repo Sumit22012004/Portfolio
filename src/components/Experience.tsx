@@ -3,13 +3,14 @@ import { Card } from "@/components/ui/card";
 import SectionHeader from "@/components/SectionHeader";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, Calendar } from "lucide-react";
+import Tilt from "@/components/Tilt";
 
 const experiences = [
   {
     role: "RAG/ Multi-Agent AI Engineer",
     company: "VRVV Ventures",
     location: "Bangalore, Karnataka",
-    period: "May 2025 – Present",
+    period: "May 2025 – Nov 2025",
     highlights: [
       "Developed an advanced conversational AI system with persistent memory, enabling storage, retrieval, and contextualization of user interactions.",
       "Designed a memory architecture using Qdrant, MongoDB, and Memgraph for encrypted user data and lifelong memory visualization, achieving 95.2% accuracy in LongMemEval, surpassing Mistral’s 86% benchmark.",
@@ -64,13 +65,13 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-24 px-4 relative overflow-hidden">
+    <section id="experience" className="py-24 px-4 relative overflow-hidden perspective-1200">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto max-w-5xl relative z-10">
         <SectionHeader title="Professional Journey" subtitle="Transforming ideas into intelligent solutions" />
 
-        <div className="relative">
+        <div className="relative preserve-3d">
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary"></div>
 
           <div className="space-y-12">
@@ -83,19 +84,27 @@ const Experience = () => {
                 <div
                   key={index}
                   ref={(el) => (itemRefs.current[index] = el)}
-                  className={`relative transition-all duration-700 ${
+                  className={`relative transition-3d ${
                     isVisible
-                      ? "opacity-100 translate-x-0"
-                      : `opacity-0 ${isLeft ? "-translate-x-20" : "translate-x-20"}`
+                      ? "opacity-100"
+                      : "opacity-0"
                   }`}
+                  style={{ 
+                    transform: isVisible 
+                      ? "perspective(1000px) translateX(0) translateZ(0) rotateY(0deg)" 
+                      : `perspective(1000px) translateX(${isLeft ? "-100px" : "100px"}) translateZ(-50px) rotateY(${isLeft ? "15deg" : "-15deg"})`,
+                    transitionDuration: "0.8s"
+                  }}
                 >
-                  <Card
-                    className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-500 group relative overflow-hidden hover:scale-[1.02] ${
-                      isLeft
-                        ? "hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] md:mr-[52%]"
-                        : "hover:border-secondary/50 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.2)] md:ml-[52%]"
-                    }`}
-                  >
+                  <Tilt maxTiltDeg={5}>
+                    <Card
+                      className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-3d-smooth group relative overflow-hidden ${
+                        isLeft
+                          ? "hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25),0_20px_60px_-15px_rgba(0,0,0,0.3)] md:mr-[52%]"
+                          : "hover:border-secondary/50 hover:shadow-[0_0_40px_hsl(var(--secondary)/0.25),0_20px_60px_-15px_rgba(0,0,0,0.3)] md:ml-[52%]"
+                      }`}
+                      style={{ transform: "translateZ(0)" }}
+                    >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div 
                       className={`hidden md:block absolute top-10 w-4 h-4 rounded-full ring-4 ring-background ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'} shadow-[0_0_20px_hsl(var(--${index % 2 === 0 ? 'primary' : 'secondary'})/0.5)]`}
@@ -133,6 +142,7 @@ const Experience = () => {
 
                     {/* Tech badges removed per request */}
                   </Card>
+                  </Tilt>
                 </div>
               );
             })}

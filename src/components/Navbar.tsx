@@ -42,9 +42,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
+    <div className="fixed top-0 left-0 right-0 z-50 perspective-1200">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mt-4 rounded-2xl border border-border/50 bg-gradient-to-r from-primary/15 via-background/60 to-secondary/15 backdrop-blur-xl supports-[backdrop-filter]:bg-background/40 shadow-[0_10px_40px_hsl(var(--primary)/0.12)] relative overflow-hidden">
+        <div className="mt-4 rounded-2xl border border-border/50 bg-gradient-to-r from-primary/15 via-background/60 to-secondary/15 backdrop-blur-xl supports-[backdrop-filter]:bg-background/40 shadow-[0_10px_50px_hsl(var(--primary)/0.15),0_20px_80px_-20px_rgba(0,0,0,0.4)] relative overflow-hidden transition-3d hover:shadow-[0_15px_60px_hsl(var(--primary)/0.2),0_25px_100px_-25px_rgba(0,0,0,0.5)]" style={{ transform: "translateZ(0)" }}>
           <div className="absolute -left-8 -top-10 h-24 w-40 bg-primary/25 blur-2xl rounded-full animate-glow-pulse" />
           <div className="absolute -right-8 -top-10 h-24 w-40 bg-secondary/25 blur-2xl rounded-full animate-glow-pulse" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--primary)/.18),transparent,hsl(var(--secondary)/.18))] bg-[length:200%_100%] animate-shimmer opacity-30" />
@@ -54,7 +54,7 @@ const Navbar = () => {
             <div className="absolute inset-0 rounded-2xl pointer-events-none [mask-image:radial-gradient(120%_80%_at_50%_-20%,#000,transparent)]" />
             <Button
               onClick={() => handleScrollTo("contact")}
-              className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:from-primary/90 hover:to-secondary/90 px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:from-primary/90 hover:to-secondary/90 px-4 py-2 rounded-lg transition-3d hover-3d-lift"
               aria-label="Hire Me"
             >
               Hire Me
@@ -73,7 +73,7 @@ const Navbar = () => {
                   <Button
                     key={s.id}
                     variant="ghost"
-                    className={`${isActive ? activeCls : base} px-3 py-2 rounded-lg transition-all duration-200 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:${isLeft ? 'ring-primary/40' : 'ring-secondary/40'}`}
+                    className={`${isActive ? activeCls : base} px-3 py-2 rounded-lg transition-3d hover-3d-lift focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:${isLeft ? 'ring-primary/40' : 'ring-secondary/40'}`}
                     onClick={() => handleScrollTo(s.id)}
                     aria-label={`Go to ${s.label}`}
                   >

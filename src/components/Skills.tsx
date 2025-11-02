@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import SectionHeader from "@/components/SectionHeader";
+import Tilt from "@/components/Tilt";
 import {
   Brain,
   Code2,
@@ -141,11 +142,11 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-24 px-4 relative overflow-hidden">
+    <section id="skills" className="py-24 px-4 relative overflow-hidden perspective-1200">
       <div className="container mx-auto max-w-6xl relative z-10">
         <SectionHeader title="Technical Arsenal" subtitle="Expertise across the AI & ML technology stack" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 preserve-3d">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             const isVisible = visibleItems.includes(index);
@@ -153,14 +154,21 @@ const Skills = () => {
               <div
                 key={index}
                 ref={(el) => (itemRefs.current[index] = el)}
-                className={`transition-all duration-700 ${
+                className={`transition-3d ${
                   isVisible
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 translate-y-10 scale-95"
+                    ? "opacity-100"
+                    : "opacity-0"
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ 
+                  transform: isVisible 
+                    ? "perspective(1000px) translateY(0) translateZ(0) scale(1)" 
+                    : "perspective(1000px) translateY(30px) translateZ(-80px) scale(0.9)",
+                  transitionDelay: `${index * 100}ms`,
+                  transitionDuration: "0.7s"
+                }}
               >
-                <Card className="relative overflow-hidden h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 hover:scale-[1.03] group hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)]">
+                <Tilt maxTiltDeg={6}>
+                  <Card className="relative overflow-hidden h-full p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-3d-smooth group hover:shadow-[0_0_35px_hsl(var(--primary)/0.2),0_20px_60px_-15px_rgba(0,0,0,0.3)]" style={{ transform: "translateZ(0)" }}>
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="flex items-center gap-3 mb-6">
                     <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
@@ -187,6 +195,7 @@ const Skills = () => {
                     ))}
                   </div>
                 </Card>
+                </Tilt>
               </div>
             );
           })}

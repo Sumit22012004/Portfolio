@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { GraduationCap } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import Tilt from "@/components/Tilt";
 
 const education = [
   {
@@ -53,33 +54,41 @@ const Education = () => {
   }, []);
 
   return (
-    <section id="education" className="py-24 px-4 relative overflow-hidden">
+    <section id="education" className="py-24 px-4 relative overflow-hidden perspective-1200">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <SectionHeader title="Education" subtitle="Academic qualifications and milestones" />
 
-        <div className="space-y-6">
+        <div className="space-y-6 preserve-3d">
           {education.map((edu, i) => {
             const isVisible = visibleItems.includes(i);
             return (
               <div
                 key={i}
                 ref={(el) => (itemRefs.current[i] = el)}
-                className={`transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+                className={`transition-3d ${
+                  isVisible ? "opacity-100" : "opacity-0"
                 }`}
-                style={{ transitionDelay: `${i * 100}ms` }}
+                style={{ 
+                  transform: isVisible 
+                    ? "perspective(1000px) translateY(0) translateZ(0) rotateX(0deg) scale(1)" 
+                    : "perspective(1000px) translateY(40px) translateZ(-60px) rotateX(8deg) scale(0.95)",
+                  transitionDelay: `${i * 100}ms`,
+                  transitionDuration: "0.7s"
+                }}
               >
-                <Card
-                  className={`relative overflow-hidden p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-500 group hover:scale-[1.02] ${
-                    i === 0
-                      ? 'hover:border-secondary/50 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.25)]'
-                      : i === 1
-                      ? 'hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]'
-                      : 'hover:border-secondary/50 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.25)]'
-                  }`}
-                >
+                <Tilt maxTiltDeg={4}>
+                  <Card
+                    className={`relative overflow-hidden p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-3d-smooth group ${
+                      i === 0
+                        ? 'hover:border-secondary/50 hover:shadow-[0_0_35px_hsl(var(--secondary)/0.3),0_20px_60px_-15px_rgba(0,0,0,0.3)]'
+                        : i === 1
+                        ? 'hover:border-primary/50 hover:shadow-[0_0_35px_hsl(var(--primary)/0.3),0_20px_60px_-15px_rgba(0,0,0,0.3)]'
+                        : 'hover:border-secondary/50 hover:shadow-[0_0_35px_hsl(var(--secondary)/0.3),0_20px_60px_-15px_rgba(0,0,0,0.3)]'
+                    }`}
+                    style={{ transform: "translateZ(0)" }}
+                  >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10 flex items-start gap-4">
                     <div className={`p-3 ${i === 0 || i === 2 ? 'bg-secondary/10' : 'bg-primary/10'} rounded-lg`}>
@@ -92,6 +101,7 @@ const Education = () => {
                     </div>
                   </div>
                 </Card>
+                </Tilt>
               </div>
             );
           })}
