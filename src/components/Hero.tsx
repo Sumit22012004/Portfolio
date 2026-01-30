@@ -42,12 +42,12 @@ const Hero = () => {
           {/* Role with typing effect */}
           <div className="animate-fade-in-right">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground/90">
-              AI Engineer & Innovator
+              AI Engineer
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mt-4 max-w-3xl mx-auto leading-relaxed">
               Specializing in <span className="text-primary font-semibold">Multi-Agent Systems</span> and{" "}
               <span className="text-secondary font-semibold">Memory-Augmented Architectures</span>.
-              Building the future of adaptive AI solutions.
+              Building scalable, production-ready intelligent systems.
             </p>
           </div>
 

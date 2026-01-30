@@ -7,10 +7,23 @@ import Tilt from "@/components/Tilt";
 
 const experiences = [
   {
-    role: "RAG/ Multi-Agent AI Engineer",
+    role: "Senior AI Engineer (Freelance)",
+    company: "India Career Support",
+    location: "Remote",
+    period: "December 2025 – February 2026",
+    highlights: [
+      "Architected and deployed custom LLM solutions for diverse clients, optimizing model performance and reducing inference costs.",
+      "Developed autonomous agentic workflows using LangChain to automate complex business processes and data analysis tasks.",
+      "Consulted on AI strategy and technical roadmaps, guiding startups in integrating generative AI features into their products.",
+    ],
+    tech: ["LLMs", "LangChain", "Agentic AI", "Python", "Cloud Architecture"],
+    icon: Briefcase,
+  },
+  {
+    role: "AI Engineer",
     company: "VRVV Ventures",
-    location: "Bangalore, Karnataka",
-    period: "May 2025 – Nov 2025",
+    location: "Bangalore",
+    period: "September 2024 – November 2025",
     highlights: [
       "Developed an advanced conversational AI system with persistent memory, enabling storage, retrieval, and contextualization of user interactions.",
       "Designed a memory architecture using Qdrant, MongoDB, and Memgraph for encrypted user data and lifelong memory visualization, achieving 95.2% accuracy in LongMemEval, surpassing Mistral’s 86% benchmark.",
@@ -25,14 +38,14 @@ const experiences = [
     role: "Software Development Trainee",
     company: "Udyat Technologies",
     location: "Mohali, Punjab",
-    period: "September 2024 – March 2025",
+    period: "March 2024 – September 2024",
     highlights: [
       "Developed and optimized backend APIs using Python, FastAPI, and LangChain, integrating advanced LLMs with Retrieval-Augmented Generation (RAG) and prompt engineering for accuracy and efficiency improvements.",
       "Designed and deployed multi-agent workflows for AI-driven automation, enabling session management, fine‑tuned conversational responses, and scalable chatbot applications.",
       "Leveraged AWS (Lambda, EC2) and CI/CD pipelines to ensure seamless deployment and performance optimization while integrating OCR, custom NLP models, and vectorized insights generation.",
     ],
     tech: ["Python", "FastAPI", "LangChain", "AWS", "MySQL", "MongoDB", "NLP"],
-    icon: Calendar,
+    icon: Briefcase,
   },
 ];
 
@@ -67,7 +80,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 px-4 relative overflow-hidden perspective-1200">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
-      
+
       <div className="container mx-auto max-w-5xl relative z-10">
         <SectionHeader title="Professional Journey" subtitle="Transforming ideas into intelligent solutions" />
 
@@ -84,64 +97,62 @@ const Experience = () => {
                 <div
                   key={index}
                   ref={(el) => (itemRefs.current[index] = el)}
-                  className={`relative transition-3d ${
-                    isVisible
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                  style={{ 
-                    transform: isVisible 
-                      ? "perspective(1000px) translateX(0) translateZ(0) rotateY(0deg)" 
+                  className={`relative transition-3d ${isVisible
+                    ? "opacity-100"
+                    : "opacity-0"
+                    }`}
+                  style={{
+                    transform: isVisible
+                      ? "perspective(1000px) translateX(0) translateZ(0) rotateY(0deg)"
                       : `perspective(1000px) translateX(${isLeft ? "-100px" : "100px"}) translateZ(-50px) rotateY(${isLeft ? "15deg" : "-15deg"})`,
                     transitionDuration: "0.8s"
                   }}
                 >
                   <Tilt maxTiltDeg={5}>
                     <Card
-                      className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-3d-smooth group relative overflow-hidden ${
-                        isLeft
-                          ? "hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25),0_20px_60px_-15px_rgba(0,0,0,0.3)] md:mr-[52%]"
-                          : "hover:border-secondary/50 hover:shadow-[0_0_40px_hsl(var(--secondary)/0.25),0_20px_60px_-15px_rgba(0,0,0,0.3)] md:ml-[52%]"
-                      }`}
+                      className={`p-8 bg-card/50 backdrop-blur-sm border-border/50 transition-3d-smooth group relative overflow-hidden ${isLeft
+                        ? "hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25),0_20px_60px_-15px_rgba(0,0,0,0.3)] md:mr-[52%]"
+                        : "hover:border-secondary/50 hover:shadow-[0_0_40px_hsl(var(--secondary)/0.25),0_20px_60px_-15px_rgba(0,0,0,0.3)] md:ml-[52%]"
+                        }`}
                       style={{ transform: "translateZ(0)" }}
                     >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div 
-                      className={`hidden md:block absolute top-10 w-4 h-4 rounded-full ring-4 ring-background ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'} shadow-[0_0_20px_hsl(var(--${index % 2 === 0 ? 'primary' : 'secondary'})/0.5)]`}
-                      style={{ 
-                        right: isLeft ? "-2.3rem" : "auto",
-                        left: isLeft ? "auto" : "-2.3rem"
-                      }}
-                    ></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div
+                        className={`hidden md:block absolute top-10 w-4 h-4 rounded-full ring-4 ring-background ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'} shadow-[0_0_20px_hsl(var(--${index % 2 === 0 ? 'primary' : 'secondary'})/0.5)]`}
+                        style={{
+                          right: isLeft ? "-2.3rem" : "auto",
+                          left: isLeft ? "auto" : "-2.3rem"
+                        }}
+                      ></div>
 
-                    <div className="relative z-10 flex items-start gap-4 mb-4">
-                      <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
-                        <Icon className={`w-6 h-6 ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className={`text-2xl font-bold text-foreground mb-1 transition-colors ${index % 2 === 0 ? 'group-hover:text-primary' : 'group-hover:text-secondary'}`}>
-                          {exp.role}
-                        </h3>
-                        <p className={`text-lg font-semibold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
-                          {exp.company}
-                        </p>
-                        <div className="flex items-center gap-2 text-muted-foreground mt-2">
-                          <span className="text-sm">{exp.period}</span>
-                          <span className="text-sm">• {exp.location}</span>
+                      <div className="relative z-10 flex items-start gap-4 mb-4">
+                        <div className={`p-3 ${index % 2 === 0 ? 'bg-primary/10 group-hover:bg-primary/20' : 'bg-secondary/10 group-hover:bg-secondary/20'} rounded-lg transition-colors`}>
+                          <Icon className={`w-6 h-6 ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className={`text-2xl font-bold text-foreground mb-1 transition-colors ${index % 2 === 0 ? 'group-hover:text-primary' : 'group-hover:text-secondary'}`}>
+                            {exp.role}
+                          </h3>
+                          <p className={`text-lg font-semibold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
+                            {exp.company}
+                          </p>
+                          <div className="flex items-center gap-2 text-muted-foreground mt-2">
+                            <span className="text-sm">{exp.period}</span>
+                            <span className="text-sm">• {exp.location}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <ul className={`mb-6 pl-6 list-disc space-y-3 ${index % 2 === 0 ? 'marker:text-primary' : 'marker:text-secondary'}`}>
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="text-foreground/80">
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                      <ul className={`mb-6 pl-6 list-disc space-y-3 ${index % 2 === 0 ? 'marker:text-primary' : 'marker:text-secondary'}`}>
+                        {exp.highlights.map((highlight, i) => (
+                          <li key={i} className="text-foreground/80">
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
 
-                    {/* Tech badges removed per request */}
-                  </Card>
+                      {/* Tech badges removed per request */}
+                    </Card>
                   </Tilt>
                 </div>
               );
