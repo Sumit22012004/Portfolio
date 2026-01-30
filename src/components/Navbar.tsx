@@ -53,7 +53,7 @@ const Navbar = () => {
           <div className="relative flex items-center justify-between px-5 py-3">
             <div className="absolute inset-0 rounded-2xl pointer-events-none [mask-image:radial-gradient(120%_80%_at_50%_-20%,#000,transparent)]" />
             <Button
-              onClick={() => window.open('/Sumit%20Kumar.pdf', '_blank')}
+              onClick={() => window.open('./Sumit%20Kumar.pdf', '_blank')}
               className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:from-primary/90 hover:to-secondary/90 px-4 py-2 rounded-lg transition-3d hover-3d-lift"
               aria-label="View Resume"
             >

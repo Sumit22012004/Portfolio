@@ -114,7 +114,7 @@ const Contact = () => {
                     <Github className="w-6 h-6 text-secondary" />
                   </a>
                   <a
-                    href="/Sumit%20Kumar.pdf"
+                    href="./Sumit%20Kumar.pdf"
                     download
                     aria-label="Download My Resume"
                     title="Download My Resume"
@@ -140,7 +140,7 @@ const Contact = () => {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground">
-            
+
           </p>
         </div>
       </div>
