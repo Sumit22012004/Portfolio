@@ -1,122 +1,61 @@
-## Sumit Kumar — AI Engineer Portfolio
+# Sumit Kumar — AI Engineer Portfolio
 
-A modern, interactive portfolio showcasing my expertise in AI engineering, specializing in multi-agent systems, RAG (Retrieval-Augmented Generation), and memory-augmented architectures. Built with cutting-edge web technologies and featuring elegant 3D transitions for an immersive user experience.
+**Live site:** https://sumit22012004.github.io/Portfolio/
 
-🌐 **Live Site:** [https://sumit22012004.github.io/Portfolio/](https://sumit22012004.github.io/Portfolio/)
+Personal portfolio of **Sumit Kumar, AI / Generative AI Engineer**. It showcases production GenAI systems (multi-agent orchestration, RAG, computer vision and multimodal generation) that I built and shipped on Microsoft Azure for enterprise clients including Mankind Pharma and Bharat Serums and Vaccines.
 
-### ✨ Features
-- **Interactive 3D Transitions**: Smooth perspective transforms and tilt effects on hover
-- **Mouse-Tracking Cards**: Cards that respond to cursor movement with realistic 3D depth
-- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
-- **Modern UI/UX**: Clean, professional interface with subtle animations and glows
-- **Performance Optimized**: GPU-accelerated CSS transforms for smooth 60fps animations
-- **Comprehensive Sections**: Hero, Experience, Projects, Skills, Education, and Contact
-- **Accessible**: Built with semantic HTML and ARIA labels for screen reader support
-
-### 🛠️ Tech Stack
-- **Frontend Framework**: React 18 + TypeScript
-- **Build Tool**: Vite 5
-- **Styling**: Tailwind CSS + Custom CSS Animations
-- **UI Components**: shadcn/ui
-- **Routing**: React Router (Hash-based for GitHub Pages compatibility)
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages
-
-### 🚀 Getting Started
-
-**Requirements**: Node.js 18+ and npm
-
-```sh
-# Clone the repository
-git clone https://github.com/Sumit22012004/Portfolio.git
-cd Portfolio
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Deploy to GitHub Pages
-npm run deploy
-```
-
-### 🎨 Theming / Customization
-
-All theme tokens are defined in `src/index.css` under the `:root` CSS variables. The portfolio uses a professional blue color scheme that can be easily customized:
-
-**Primary Color Variables:**
-- `--primary` — Main accent color (default: blue)
-- `--secondary` — Secondary accent color
-- `--accent` — Additional accent color
-- `--ring` — Focus ring color
-
-**3D Animation Variables:**
-- `--transition-smooth` — Smooth easing transitions
-- `--transition-spring` — Spring-like bounce effects
-- `--glow-primary` — Primary glow effects
-- `--glow-secondary` — Secondary glow effects
-
-All animations and 3D effects automatically adapt to these color tokens.
-
-### 📁 Project Structure
-
-```
-Portfolio/
-├── src/
-│   ├── pages/          # Route components (Index, NotFound)
-│   ├── components/     # Main section components
-│   │   ├── ui/        # Reusable UI components (shadcn/ui)
-│   │   ├── Hero.tsx
-│   │   ├── Experience.tsx
-│   │   ├── Projects.tsx
-│   │   ├── Skills.tsx
-│   │   ├── Education.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Navbar.tsx
-│   │   └── Tilt.tsx   # 3D tilt effect component
-│   ├── index.css      # Global styles & 3D animations
-│   └── App.tsx        # Main app component
-├── public/            # Static assets
-└── dist/             # Production build output
-```
-
-### 🎭 3D Features
-
-The portfolio includes several advanced 3D animation features:
-
-1. **Tilt Component**: Interactive mouse-tracking 3D tilt effect
-2. **Perspective Transforms**: Depth-aware card animations on scroll
-3. **Hover Effects**: Cards lift and tilt in 3D space on hover
-4. **Floating Elements**: Gentle 3D floating animations for background elements
-5. **Smooth Transitions**: Custom cubic-bezier easing for natural motion
-
-All 3D effects are GPU-accelerated for optimal performance across devices.
-
-### 🌐 Deployment
-
-The portfolio is deployed on **GitHub Pages** and automatically rebuilds on push to the `main` branch.
-
-**To deploy your own version:**
-1. Fork this repository
-2. Update `package.json` homepage: `"homepage": "https://yourusername.github.io/Portfolio/"`
-3. Run `npm run deploy`
-4. Enable GitHub Pages in repository settings (Source: `gh-pages` branch)
-
-### 📧 Contact
-
-- **Email**: [sklegacy789@gmail.com](mailto:sklegacy789@gmail.com)
-- **LinkedIn**: [linkedin.com/in/sumitkumar22](https://linkedin.com/in/sumitkumar22)
-- **GitHub**: [github.com/Sumit22012004](https://github.com/Sumit22012004)
+[![Live](https://img.shields.io/badge/Live-sumit22012004.github.io%2FPortfolio-e0603f?style=flat-square)](https://sumit22012004.github.io/Portfolio/)
+[![Résumé](https://img.shields.io/badge/Résumé-PDF-d98a2e?style=flat-square)](https://sumit22012004.github.io/Portfolio/uploads/Sumit_Kumar_Resume.pdf)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-sumitkumar22-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sumitkumar22/)
 
 ---
 
-⭐ **If you find this portfolio inspiring, please consider giving it a star!**
+## What's on the site
 
-Built with ❤️ by Sumit Kumar
+| Section | Content |
+|---|---|
+| **Hero** | Positioning: production-grade generative AI, computer vision and multi-agent systems, delivered end to end on Azure |
+| **Experience** | ThoughtSol Infotech · India Career Support · AiRA · Udyat Technologies |
+| **Systems** | Generative Media Studio, Compliance Vision Engine, Autonomous Survey Voice Agent, HCP Market Research Pipeline, with headline metrics (244 users, 88% human agreement, ~80% less manual review, ~700ms voice latency) |
+| **Skills** | An animated skill constellation plus a grouped tech stack (backend, GenAI & agents, models, retrieval, cloud & MLOps) |
+| **Education** | B.E. (Computer Science & Engineering) (Hons.) in AI & ML, in association with IBM, Chandigarh University |
+| **Contact** | Terminal-style contact block, copy-to-clipboard email, LinkedIn, GitHub and résumé download |
+
+## Design & interaction
+
+- Interactive **Three.js** neural-field background and a custom cursor
+- Scroll-triggered reveals, count-up metrics and a typing terminal
+- Animated orbiting **skill constellation** drawn on canvas
+- Fully responsive (desktop, tablet, mobile) and honours `prefers-reduced-motion`
+- Self-contained: fonts and libraries are embedded, so there are no runtime CDN dependencies
+
+## Repository layout
+
+```
+index.html                     # the complete site (self-contained bundle served by GitHub Pages)
+uploads/
+  Sumit_Kumar_Resume.pdf       # résumé served by the "Résumé" buttons
+```
+
+> `src/`, `public/` and the Vite/React config files are from an earlier version of the site and are **not used** by the live page.
+
+## Deployment
+
+The site is served by **GitHub Pages** from the root of the `main` branch.
+
+```bash
+# after changing index.html or uploads/
+git add index.html uploads
+git commit -m "Update portfolio"
+git push origin main     # live in ~1–2 minutes
+```
+
+To update the résumé, replace `uploads/Sumit_Kumar_Resume.pdf` with a file of the **same name** and push.
+
+## Contact
+
+**Email:** sumit.kumar2201200@gmail.com · **LinkedIn:** [sumitkumar22](https://www.linkedin.com/in/sumitkumar22/) · **GitHub:** [Sumit22012004](https://github.com/Sumit22012004)
+
+---
+
+© Sumit Kumar. All rights reserved.
