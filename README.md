@@ -16,15 +16,15 @@ Personal portfolio of **Sumit Kumar, AI / Generative AI Engineer**. It showcases
 |---|---|
 | **Hero** | Positioning: production-grade generative AI, computer vision and multi-agent systems, delivered end to end on Azure |
 | **Experience** | ThoughtSol Infotech · India Career Support · AiRA · Udyat Technologies |
-| **Systems** | Generative Media Studio, Compliance Vision Engine, Autonomous Survey Voice Agent, HCP Market Research Pipeline, with headline metrics (244 users, 88% human agreement, ~80% less manual review, ~700ms voice latency) |
+| **Systems** | Three production case studies (Generative Media Studio, Health-Camp Compliance Vision Engine, AI Survey & Market Research Platform), each with problem, solution, before → after results and an end-to-end delivery diagram (244 users, 88% human agreement, 3–4 days → seconds, 120 concurrent requests) |
 | **Skills** | An animated skill constellation plus a grouped tech stack (backend, GenAI & agents, models, retrieval, cloud & MLOps) |
 | **Education** | B.E. (Computer Science & Engineering) (Hons.) in AI & ML, in association with IBM, Chandigarh University |
-| **Contact** | Terminal-style contact block, copy-to-clipboard email, LinkedIn, GitHub and résumé download |
+| **Contact** | Interactive 3D business card (email, phone, LinkedIn, GitHub, résumé QR code) with Email, Résumé, LinkedIn and GitHub buttons |
 
 ## Design & interaction
 
 - Interactive **Three.js** neural-field background and a custom cursor
-- Scroll-triggered reveals, count-up metrics and a typing terminal
+- Scroll-triggered reveals, count-up metrics and a classified-file intro loader
 - Animated orbiting **skill constellation** drawn on canvas
 - Fully responsive (desktop, tablet, mobile) and honours `prefers-reduced-motion`
 - Self-contained: fonts and libraries are embedded, so there are no runtime CDN dependencies
